@@ -1,0 +1,84 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   pad.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nwang <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/01/31 19:30:11 by nwang             #+#    #+#             */
+/*   Updated: 2018/02/02 23:45:30 by nwang            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/ft_printf.h"
+
+int			z_pad(int i, t_flag pf)
+{
+	int		len;
+
+	len = 0;
+	if (pf.neg == 1)
+	{
+		ft_putchar('-');
+		len++;
+	}
+	if (pf.pos == 1 && pf.neg == 0)
+	{
+		ft_putchar('+');
+		len++;
+	}
+	if (pf.cha == 'X' && pf.hash == 1)
+		ft_putstr("0X");
+	if (pf.cha == 'x' && pf.hash == 1)
+		ft_putstr("0x");
+	while (len < i)
+	{
+		ft_putchar('0');
+		len++;
+	}
+	return (len);
+}
+
+int			p_pad(t_flag pf)
+{
+	int		i;
+	int		len;
+
+	i = 0;
+	if (pf.ilen != 0)
+	{
+		len = pf.ilen;
+		if (pf.neg == 1)
+			len--;
+		while (len++ < pf.prec)
+		{
+			ft_putchar('0');
+			i++;
+		}
+	}
+	return (i);
+}
+
+int			pad(int i, t_flag pf)
+{
+	int		len;
+
+	len = 0;
+	if (pf.zero == 1 && pf.minus == 0)
+		return (z_pad(i, pf));
+	if (pf.neg == 1 && pf.minus == 0)
+		i--;
+	while (len++ < i)
+		ft_putchar(' ');
+	if (pf.neg == 1 && pf.minus == 0)
+	{
+		ft_putchar('-');
+		len++;
+	}
+	if (pf.neg == 0 && pf.minus == 0 && pf.pos == 1)
+	{
+		ft_putchar('+');
+		len++;
+	}
+	return (len + p_pad(pf));
+}
