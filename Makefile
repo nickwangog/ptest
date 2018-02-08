@@ -6,7 +6,7 @@ INCDIR = ./includes/
 SRC_FILES = *.c
 SRCS = $(addprefix $(SRCDIR), $(SRC_FILES))
 OBJS = $(patsubst %.c, objs/%.o, $(SRC_FILES))
-LIB = ./libft/objs/*.o
+LIB = ./libft/objs/ft*.o
 INC = -I$(INCDIR)
 FLAGS = -Wall -Werror -Wextra
 
