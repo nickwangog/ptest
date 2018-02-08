@@ -54,7 +54,7 @@ char	*hexbase(uintmax_t z, int y);
 int		d_len(intmax_t i);
 int		oct(uintmax_t i, int len, t_flag *pf);
 int		hex(uintmax_t i, t_flag *pf);
-int		uint(uintmax_t i, t_flag *pf);
+int		unint(uintmax_t i, t_flag *pf);
 int		pwstring(va_list ap, int i, int z, t_flag *pf);
 int		wstr(va_list ap, int i, int x, t_flag *pf);
 

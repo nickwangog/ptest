@@ -6,7 +6,7 @@
 /*   By: nwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/02 19:24:59 by nwang             #+#    #+#             */
-/*   Updated: 2018/02/05 21:24:43 by nwang            ###   ########.fr       */
+/*   Updated: 2018/02/07 20:51:29 by nwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int		hex(uintmax_t i, t_flag *pf)
 	return (len);
 }
 
-int		uint(uintmax_t i, t_flag *pf)
+int		unint(uintmax_t i, t_flag *pf)
 {
 	int len;
 

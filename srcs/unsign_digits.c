@@ -6,7 +6,7 @@
 /*   By: nwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 16:02:34 by nwang             #+#    #+#             */
-/*   Updated: 2018/02/05 21:26:05 by nwang            ###   ########.fr       */
+/*   Updated: 2018/02/07 20:52:08 by nwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ int			udigits(va_list ap, t_flag *pf)
 	i = udigit_spec(ap, pf);
 	pf->pos = 0;
 	if (pf->cha == 'u' || pf->cha == 'U')
-		len = uint(i, pf);
+		len = unint(i, pf);
 	if (pf->cha == 'o' || pf->cha == 'O')
 		len = oct(i, 0, pf);
 	if (pf->cha == 'p')

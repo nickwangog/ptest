@@ -7,7 +7,7 @@ INCDIR = ./includes/
 SRC = $(wildcard $(SRCDIR)*.c)
 OBJ = $(patsubst $(SRCDIR)%.c, objs/%.o, $(SRC))
 LIB = ./libft/objs/ft*.o
-INC = -I$(INCDIR)
+INC = -I $(INCDIR)
 FLAGS = -Wall -Werror -Wextra
 
 all: $(NAME)
