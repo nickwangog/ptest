@@ -17,6 +17,7 @@ objs/%.o: srcs/%.c
 	@$(CC) -Wall -Wextra -Werror -I$(SRCDIR) -c $^ -o $@
 
 clean:
+	@rm -rf objs
 	@/bin/rm -f $(OBJ)
 
 fclean: clean

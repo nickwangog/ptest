@@ -15,13 +15,12 @@ all: $(NAME)
 
 $(OBJS): $(SRCS)
 	@mkdir -p objs
-	@gcc -c $(FLAGS) $(INC) $(SRCS)
-	@mv *.o objs/
+	@gcc $(FLAGS) $(INC) -c $^ -o $@
 
 $(LIBFT):
 	@make -C $(LIBDIR)
 
-$(NAME): $(OBJS) $(LIBFT)
+$(NAME): $(LIBFT) $(OBJS)
 	@ar rcs $(NAME) $(OBJS) $(LIB)
 	@echo "Butterhorn!"
 
