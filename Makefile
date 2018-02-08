@@ -3,7 +3,7 @@ SRCDIR = ./srcs/
 LIBDIR = ./libft/
 OBJDIR = ./objs/
 INCDIR = ./includes/
-SRC_FILES = *.c
+SRC_FILES = $(wildcard, *.c)
 SRCS = $(addprefix $(SRCDIR), $(SRC_FILES))
 OBJS = $(patsubst %.c, objs/%.o, $(SRC_FILES))
 LIB = ./libft/objs/ft*.o
@@ -12,7 +12,7 @@ FLAGS = -Wall -Werror -Wextra
 
 all: $(NAME)
 
-$(OBJS):
+$(OBJS): $(SRCS)
 	@rm -rf objs
 	@mkdir objs
 	@make -C $(LIBDIR)
