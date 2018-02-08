@@ -1,35 +1,20 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: nwang <marvin@42.fr>                       +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2017/04/17 09:42:04 by nwang             #+#    #+#              #
-#    Updated: 2018/02/05 20:18:14 by nwang            ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 NAME = libft.a
-
 CC = gcc
-
-FILES = ft*.c
-
-SRC = srcs/$(FILES)
-
-OBJ = $(patsubst %.c, objs/%.o, $(FILES))
+SRCDIR = ./srcs/
+SRC = $(wildcard $(SRCDIR)*.c)
+OBJ = $(patsubst $(SRCDIR)%.c, objs/%.o, $(SRC))
 
 all: $(NAME)
 
-$(NAME): $(OBJ) objs
+$(NAME): $(OBJ)
 	@ar rcs $(NAME) $(OBJ)
 
-%.o: $(SRC)
-	@rm -rf objs
-	@$(CC) -Wall -Wextra -Werror -c -I ./srcs/*.c $^
-	@mkdir objs
-	@mv ft*.o objs/
+force:
+	@true
+
+objs/%.o: srcs/%.c
+	@mkdir -p objs
+	@$(CC) -Wall -Wextra -Werror -I$(SRCDIR) -c $^ -o $@
 
 clean:
 	@/bin/rm -f $(OBJ)

@@ -1,4 +1,5 @@
 NAME = libftprintf.a
+LIBFT = ./libft/libft.a
 SRCDIR = ./srcs/
 LIBDIR = ./libft/
 OBJDIR = ./objs/
@@ -13,24 +14,25 @@ FLAGS = -Wall -Werror -Wextra
 all: $(NAME)
 
 $(OBJS): $(SRCS)
-	@rm -rf objs
-	@mkdir objs
-	@make -C $(LIBDIR)
+	@mkdir -p objs
 	@gcc -c $(FLAGS) $(INC) $(SRCS)
 	@mv *.o objs/
 
-$(NAME): $(OBJS)
+$(LIBFT):
+	@make -C $(LIBDIR)
+
+$(NAME): $(OBJS) $(LIBFT)
 	@ar rcs $(NAME) $(OBJS) $(LIB)
 	@echo "Butterhorn!"
 
 clean:
 	@rm -rf $(OBJDIR)
-	@make -C $(LIBDIR) clean
+	@make clean -C $(LIBDIR)
 
 fclean:
 	@make clean
 	@rm -rf $(NAME)
-	@make -C $(LIBDIR) fclean
+	@make fclean -C $(LIBDIR)
 
 re:	
 	@make fclean
