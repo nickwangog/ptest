@@ -12,7 +12,7 @@ FLAGS = -Wall -Werror -Wextra
 
 all: $(NAME)
 
-$(OBJS): $(SRCS)
+$(OBJS):
 	@rm -rf objs
 	@mkdir objs
 	@make -C $(LIBDIR)
