@@ -4,24 +4,23 @@ SRCDIR = ./srcs/
 LIBDIR = ./libft/
 OBJDIR = ./objs/
 INCDIR = ./includes/
-SRC_FILES = $(wildcard *.c)
-SRCS = $(addprefix $(SRCDIR), $(SRC_FILES))
-OBJS = $(patsubst %.c, objs/%.o, $(SRC_FILES))
+SRC = $(wildcard $(SRCDIR)*.c)
+OBJ = $(patsubst $(SRCDIR)%.c, objs/%.o, $(SRC))
 LIB = ./libft/objs/ft*.o
 INC = -I$(INCDIR)
 FLAGS = -Wall -Werror -Wextra
 
 all: $(NAME)
 
-$(OBJS): $(SRCS)
+objs/%.o: srcs/%.c
 	@mkdir -p objs
 	@gcc $(FLAGS) $(INC) -c $^ -o $@
 
 $(LIBFT):
 	@make -C $(LIBDIR)
 
-$(NAME): $(LIBFT) $(OBJS)
-	@ar rcs $(NAME) $(OBJS) $(LIB)
+$(NAME): $(LIBFT) $(OBJ)
+	@ar rcs $(NAME) $(OBJ) $(LIB)
 	@echo "Butterhorn!"
 
 clean:
