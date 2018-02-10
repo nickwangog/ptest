@@ -6,7 +6,7 @@
 /*   By: nwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 16:01:11 by nwang             #+#    #+#             */
-/*   Updated: 2018/02/05 21:24:03 by nwang            ###   ########.fr       */
+/*   Updated: 2018/02/10 12:44:47 by nwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int			digits(va_list ap, t_flag *pf, int len)
 	long long	i;
 
 	if (pf->cha == 'D')
-		pf->mod = 6;
+		pf->mod = 2;
 	i = digit_spec(ap, pf);
 	pf->ilen = d_len(i);
 	if (i < 0)
