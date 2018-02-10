@@ -6,7 +6,7 @@
 /*   By: nwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 16:02:34 by nwang             #+#    #+#             */
-/*   Updated: 2018/02/09 19:15:04 by nwang            ###   ########.fr       */
+/*   Updated: 2018/02/09 19:21:09 by nwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,24 +71,6 @@ int			ptr(uintmax_t i)
 	ft_putstr(s);
 	free(s);
 	return (len);
-}
-
-char		*unbase(uintmax_t z, int base)
-{
-	int		i;
-	char	*s;
-
-	i = baselen(z, base);
-	s = (char *)malloc(sizeof(char) * i + 1);
-	s[i] = '\0';
-	i--;
-	while (z > 0)
-	{
-		s[i] = (z % base) + 48;
-		z = z / base;
-		i--;
-	}
-	return (s);
 }
 
 int			udigits(va_list ap, t_flag *pf)
