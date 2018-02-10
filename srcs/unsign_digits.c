@@ -6,7 +6,7 @@
 /*   By: nwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 16:02:34 by nwang             #+#    #+#             */
-/*   Updated: 2018/02/07 20:52:08 by nwang            ###   ########.fr       */
+/*   Updated: 2018/02/09 18:22:00 by nwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@ uintmax_t	udigit_spec(va_list ap, t_flag *pf)
 {
 	if (pf->mod == 1)
 		return ((unsigned short)va_arg(ap, unsigned int));
-	if (pf->mod == 2)
+	else if (pf->mod == 2)
 		return (va_arg(ap, unsigned long int));
-	if (pf->mod == 3)
+	else if (pf->mod == 3)
 		return (va_arg(ap, uintmax_t));
-	if (pf->mod == 4)
-		return (va_arg(ap, ssize_t));
-	if (pf->mod == 5)
+	else if (pf->mod == 4)
+		return (va_arg(ap, size_t));
+	else if (pf->mod == 5)
 		return ((unsigned char)va_arg(ap, unsigned int));
-	if (pf->mod == 6)
-		return (va_arg(ap, unsigned long long));
+	else if (pf->mod == 6)
+		return (va_arg(ap, unsigned long long int));
 	else
 		return (va_arg(ap, unsigned int));
 }
@@ -103,7 +103,7 @@ int			udigits(va_list ap, t_flag *pf)
 
 	len = 0;
 	if (pf->cha == 'U' || pf->cha == 'p' || pf->cha == 'O')
-		pf->mod = 3;
+		pf->mod = 2;
 	i = udigit_spec(ap, pf);
 	pf->pos = 0;
 	if (pf->cha == 'u' || pf->cha == 'U')
