@@ -6,7 +6,7 @@
 /*   By: nwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 16:02:34 by nwang             #+#    #+#             */
-/*   Updated: 2018/02/09 18:22:00 by nwang            ###   ########.fr       */
+/*   Updated: 2018/02/09 19:15:04 by nwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,12 +78,7 @@ char		*unbase(uintmax_t z, int base)
 	int		i;
 	char	*s;
 
-	i = 0;
-	while (z > 0)
-	{
-		z = z / base;
-		i++;
-	}
+	i = baselen(z, base);
 	s = (char *)malloc(sizeof(char) * i + 1);
 	s[i] = '\0';
 	i--;

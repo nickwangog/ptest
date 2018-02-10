@@ -6,7 +6,7 @@
 /*   By: nwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/02 19:24:59 by nwang             #+#    #+#             */
-/*   Updated: 2018/02/07 20:51:29 by nwang            ###   ########.fr       */
+/*   Updated: 2018/02/09 19:17:01 by nwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ int		oct(uintmax_t i, int len, t_flag *pf)
 		len++;
 	z = pf->prec - len;
 	z > 0 ? len += z : 0;
-	if (pf->hash == 1)
-		ft_putnbr(0);
 	if (pf->minus == 0)
 		len = len + pad(pf->mwidth - len, *pf);
+	if (pf->hash == 1)
+		ft_putnbr(0);
 	while (z-- > 0)
 		ft_putnbr(0);
 	if (pf->hash == 0 && pf->dot == 0 && i == 0)
@@ -66,6 +66,37 @@ int		hex(uintmax_t i, t_flag *pf)
 		ft_putstr(s);
 	free(s);
 	return (len);
+}
+
+int			baslen(uintmax_t z, int base)
+{
+	int i;
+
+	i = 0;
+	while (z > 0)
+	{
+		z /= base;
+		i++;
+	}
+	return (i);
+}
+
+char		*unbase(uintmax_t z, int base)
+{
+	int		i;
+	char	*s;
+
+	i = baselen(z, base);
+	s = (char *)malloc(sizeof(char) * i + 1);
+	s[i] = '\0';
+	i--;
+	while (z > 0)
+	{
+		s[i] = (z % base) + 48;
+		z = z / base;
+		i--;
+	}
+	return (s);
 }
 
 int		unint(uintmax_t i, t_flag *pf)

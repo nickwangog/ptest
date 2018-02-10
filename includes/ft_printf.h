@@ -50,6 +50,7 @@ int		pad(int i, t_flag pf);
 int		zppad(uintmax_t z, int i, int x, t_flag *pf);
 int		minpad(uintmax_t z, int i, int x, t_flag *pf);
 char	*unbase(uintmax_t z, int base);
+int		baselen(uintmax_t z, int base);
 char	*hexbase(uintmax_t z, int y);
 int		d_len(intmax_t i);
 int		oct(uintmax_t i, int len, t_flag *pf);

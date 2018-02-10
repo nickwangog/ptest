@@ -6,7 +6,7 @@
 /*   By: nwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 18:08:50 by nwang             #+#    #+#             */
-/*   Updated: 2018/02/05 22:13:04 by nwang            ###   ########.fr       */
+/*   Updated: 2018/02/09 18:34:41 by nwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ int		char_count(const char *f, int i)
 	int	j;
 
 	j = 0;
-	while(f[i] && !(check_spec(f[i])) && f[i] != '%')
+	while (f[i] && !(check_spec(f[i])) && f[i] != '%')
 	{
 		i++;
 		j++;
 	}
-	return(j + 1);
+	return (j + 1);
 }
 
 int		man_flag(const char *f, int i, t_flag *pf)
@@ -41,8 +41,6 @@ int		man_flag(const char *f, int i, t_flag *pf)
 		return (-1);
 	}
 	return (a + i);
-
-
 }
 
 int		ft_percent(int i, int *flag, size_t *num)
@@ -81,7 +79,6 @@ int		ft_new(const char *fo, t_flag *pf, va_list ap, size_t num)
 	i = 0;
 	return (num);
 }
-
 
 /*int		ft_check(const char *f,	t_flag *pf, va_list ap, size_t res)
 {
