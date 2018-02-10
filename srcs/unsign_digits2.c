@@ -6,7 +6,7 @@
 /*   By: nwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/02 19:24:59 by nwang             #+#    #+#             */
-/*   Updated: 2018/02/09 19:17:01 by nwang            ###   ########.fr       */
+/*   Updated: 2018/02/09 19:23:13 by nwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int		hex(uintmax_t i, t_flag *pf)
 	return (len);
 }
 
-int			baslen(uintmax_t z, int base)
+int			baselen(uintmax_t z, int base)
 {
 	int i;
 
