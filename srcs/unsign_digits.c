@@ -6,7 +6,7 @@
 /*   By: nwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 16:02:34 by nwang             #+#    #+#             */
-/*   Updated: 2018/02/09 19:21:09 by nwang            ###   ########.fr       */
+/*   Updated: 2018/02/11 22:21:07 by nwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ char		*hexbase(uintmax_t z, int y)
 		i++;
 	}
 	s[i] = '\0';
-	return (ft_strrev(s));
+	s = ft_strrev(s);
+	return (s);
 }
 
 int			ptr(uintmax_t i)

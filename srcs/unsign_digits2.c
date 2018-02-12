@@ -6,7 +6,7 @@
 /*   By: nwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/02 19:24:59 by nwang             #+#    #+#             */
-/*   Updated: 2018/02/09 19:23:13 by nwang            ###   ########.fr       */
+/*   Updated: 2018/02/11 23:05:32 by nwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ int		hex(uintmax_t i, t_flag *pf)
 	s = hexbase(i, (pf->cha == 'x' ? 0 : 1));
 	len = ft_strlen(s);
 	i != 0 && pf->hash ? len += 2 : len;
+	if (pf->minus == 0 || pf->minus == 1)
+		len = len + pad(pf->mwidth - len, *pf);
 	if (pf->zero == 0 || pf->minus)
 	{
 		if (pf->hash == 1 && pf->cha == 'x' && i != 0)
@@ -60,8 +62,6 @@ int		hex(uintmax_t i, t_flag *pf)
 	}
 	if (pf->dot == 1 && i == 0)
 		ft_putchar(' ');
-	if (pf->minus == 0 || pf->minus == 1)
-		len = len + pad(pf->mwidth - len, *pf);
 	else
 		ft_putstr(s);
 	free(s);
@@ -102,15 +102,20 @@ char		*unbase(uintmax_t z, int base)
 int		unint(uintmax_t i, t_flag *pf)
 {
 	int len;
+	int z;
 
+	z = i;
 	len = 1;
-	while (i /= 10)
-		len++;
-	if (pf->minus == 0 || pf->minus == 1)
+	if (z != 0)
+		while ((z /= 10))
+			len++;
+	if (pf->minus == 0)
 		len += pad(pf->mwidth - d_len(i), *pf);
 	if (pf->minus == 0 && pf->dot == 1)
 		while (len++ < pf->prec)
 			ft_putchar('0');
+	if (pf->minus == 1)
+		len += pad(pf->mwidth - d_len(i), *pf);
 	ft_putnbrumax(i);
 	return (len);
 }

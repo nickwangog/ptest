@@ -6,7 +6,7 @@
 /*   By: nwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 14:51:00 by nwang             #+#    #+#             */
-/*   Updated: 2018/02/11 22:02:29 by nwang            ###   ########.fr       */
+/*   Updated: 2018/02/11 22:08:01 by nwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,6 @@ int		check_flag(char c)
 		return (1);
 	return (0);
 }
-
-/*int		check_lspec(char c)
-{
-	if (c == 'h' || c == 'l' || c == 'j' || c == 'z')
-		return (1);
-	return (0);
-}*/
 
 int		which_mods(const char *f, int i, t_flag *pf)
 {
