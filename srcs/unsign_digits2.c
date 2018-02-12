@@ -6,7 +6,7 @@
 /*   By: nwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/02 19:24:59 by nwang             #+#    #+#             */
-/*   Updated: 2018/02/12 14:00:49 by nwang            ###   ########.fr       */
+/*   Updated: 2018/02/12 14:01:58 by nwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int		hex(uintmax_t i, t_flag *pf)
 	s = hexbase(i, (pf->cha == 'x' ? 0 : 1));
 	len = ft_strlen(s);
 	i != 0 && pf->hash ? len += 2 : len;
-	if (pf->minus == 0)// || pf->minus == 1)
+	if ((pf->minus == 0) || (pf->minus == 1))
 		len = len + pad(pf->mwidth - len, *pf);
 	if (pf->zero == 0 || pf->minus)
 	{
@@ -64,8 +64,6 @@ int		hex(uintmax_t i, t_flag *pf)
 		ft_putchar(' ');
 	else
 		ft_putstr(s);
-	if (pf->minus == 1)// ||( pf->minus == 1)
-		len = len + pad(pf->mwidth - len, *pf);
 	free(s);
 	return (len);
 }

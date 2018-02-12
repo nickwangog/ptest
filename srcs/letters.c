@@ -6,7 +6,7 @@
 /*   By: nwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 14:14:58 by nwang             #+#    #+#             */
-/*   Updated: 2018/02/05 21:50:51 by nwang            ###   ########.fr       */
+/*   Updated: 2018/02/12 14:19:41 by nwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,17 @@
 
 int		char_out(va_list ap, t_flag *pf)
 {
-	int i;
-	int j;
+	int		i;
+	char	c;
 
 	i = 0;
-	j = 0;
 	if (pf->cha != '%')
-		j = va_arg(ap, int);
+		c = va_arg(ap, int);
 	if (pf->cha == '%')
-		j = '%';
+		c = '%';
 	if (pf->mwidth > 0 && (pf->minus == 0 || pf->minus == 1))
 		i = pad(pf->mwidth - 1, *pf);
-	ft_putchar(j);
+	ft_putchar(c);
 	i++;
 	return (i);
 }
