@@ -6,7 +6,7 @@
 /*   By: nwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 18:01:38 by nwang             #+#    #+#             */
-/*   Updated: 2018/02/11 18:15:45 by nwang            ###   ########.fr       */
+/*   Updated: 2018/02/12 15:48:12 by nwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ int		output(va_list ap, t_flag *pf)
 		pf->mwidth = (va_arg(ap, int));
 	if (pf->starp == 1)
 		pf->prec = (va_arg(ap, int));
+	if (pf->cha == 'c' || pf->cha == 'C' || pf->cha == 's' ||
+		pf->cha == 'S' || pf->cha == '%')
+		i += letters(ap, pf);
 	if ((pf->cha == 'd') || (pf->cha == 'D') || (pf->cha == 'i'))
 		i += digits(ap, pf, 0);
 	if ((pf->cha == 'o') || (pf->cha == 'O') || (pf->cha == 'u') ||
 		(pf->cha == 'U') || (pf->cha == 'x') || (pf->cha == 'X') ||
 		(pf->cha == 'p'))
 		i += udigits(ap, pf);
-	if (pf->cha == 'c' || pf->cha == 'C' || pf->cha == 's' ||
-		pf->cha == 'S' || pf->cha == '%')
-		i += letters(ap, pf);
 	return (i);
 }
