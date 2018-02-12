@@ -6,7 +6,7 @@
 /*   By: nwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/31 19:30:11 by nwang             #+#    #+#             */
-/*   Updated: 2018/02/02 23:45:30 by nwang            ###   ########.fr       */
+/*   Updated: 2018/02/11 18:21:19 by nwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,24 +61,24 @@ int			p_pad(t_flag pf)
 
 int			pad(int i, t_flag pf)
 {
-	int		len;
+	int		x;
 
-	len = 0;
+	x = 0;
 	if (pf.zero == 1 && pf.minus == 0)
 		return (z_pad(i, pf));
 	if (pf.neg == 1 && pf.minus == 0)
 		i--;
-	while (len++ < i)
+	while (x++ < i)
 		ft_putchar(' ');
 	if (pf.neg == 1 && pf.minus == 0)
 	{
 		ft_putchar('-');
-		len++;
+		x++;
 	}
 	if (pf.neg == 0 && pf.minus == 0 && pf.pos == 1)
 	{
 		ft_putchar('+');
-		len++;
+		x++;
 	}
-	return (len + p_pad(pf));
+	return (x + p_pad(pf));
 }
