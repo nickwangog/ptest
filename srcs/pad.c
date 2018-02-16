@@ -6,7 +6,7 @@
 /*   By: nwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/31 19:30:11 by nwang             #+#    #+#             */
-/*   Updated: 2018/02/11 18:21:19 by nwang            ###   ########.fr       */
+/*   Updated: 2018/02/16 15:39:27 by nwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,11 @@ int			pad(int i, t_flag pf)
 		return (z_pad(i, pf));
 	if (pf.neg == 1 && pf.minus == 0)
 		i--;
-	while (x++ < i)
+	while (x < i)
+	{
 		ft_putchar(' ');
+		x++;
+	}
 	if (pf.neg == 1 && pf.minus == 0)
 	{
 		ft_putchar('-');
