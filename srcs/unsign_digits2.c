@@ -6,7 +6,7 @@
 /*   By: nwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/02 19:24:59 by nwang             #+#    #+#             */
-/*   Updated: 2018/02/16 13:38:15 by nwang            ###   ########.fr       */
+/*   Updated: 2018/02/16 15:28:38 by nwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,13 +104,8 @@ char		*unbase(uintmax_t z, int base)
 int		unint(uintmax_t i, t_flag *pf)
 {
 	int len;
-	int z;
 
-	z = i;
-	len = 1;
-	if (z != 0)
-		while ((z /= 10))
-			len++;
+	len = ft_unintlen(i);
 	if (pf->minus == 0)
 		len += pad(pf->mwidth - d_len(i), *pf);
 	if (pf->minus == 0 && pf->dot == 1)
