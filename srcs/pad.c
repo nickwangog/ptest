@@ -6,7 +6,7 @@
 /*   By: nwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/31 19:30:11 by nwang             #+#    #+#             */
-/*   Updated: 2018/02/16 15:42:16 by nwang            ###   ########.fr       */
+/*   Updated: 2018/02/16 16:47:01 by nwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,11 @@ int			p_pad(t_flag pf)
 		len = pf.ilen;
 		if (pf.neg == 1)
 			len--;
-		while (len++ < pf.prec)
+		while (len < pf.prec)
 		{
 			ft_putnbr(0);
 			i++;
+			len++;
 		}
 	}
 	return (i);

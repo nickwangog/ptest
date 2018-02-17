@@ -6,7 +6,7 @@
 /*   By: nwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 16:02:34 by nwang             #+#    #+#             */
-/*   Updated: 2018/02/11 22:21:07 by nwang            ###   ########.fr       */
+/*   Updated: 2018/02/16 17:34:17 by nwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,26 @@ uintmax_t	udigit_spec(va_list ap, t_flag *pf)
 		return (va_arg(ap, unsigned long long int));
 	else
 		return (va_arg(ap, unsigned int));
+}
+
+char		*strrev(char *s)
+{
+	int		i;
+	int		x;
+	char	*ret;
+
+	x = 0;
+	i = ft_strlen(s) - 1;
+	ret = ft_strnew(i + 1);
+	while (i >= 0)
+	{
+		ret[x] = s[i];
+		i--;
+		x++;
+	}
+	ret[x] = '\0';
+	free(s);
+	return (ret);
 }
 
 char		*hexbase(uintmax_t z, int y)
@@ -54,7 +74,7 @@ char		*hexbase(uintmax_t z, int y)
 		i++;
 	}
 	s[i] = '\0';
-	s = ft_strrev(s);
+	s = strrev(s);
 	return (s);
 }
 

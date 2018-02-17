@@ -6,7 +6,7 @@
 /*   By: nwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 18:08:50 by nwang             #+#    #+#             */
-/*   Updated: 2018/02/09 18:34:41 by nwang            ###   ########.fr       */
+/*   Updated: 2018/02/16 20:23:10 by nwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		man_flag(const char *f, int i, t_flag *pf)
 	int b;
 
 	a = 1;
-	which_flag(f, i + 1, pf);
+	which_flag(f, i + 1, 0, pf);
 	b = valid_char(f, i + 1, pf);
 	which_mods(f, i + 1, pf);
 	a = char_count(f, i + 1);
@@ -80,48 +80,14 @@ int		ft_new(const char *fo, t_flag *pf, va_list ap, size_t num)
 	return (num);
 }
 
-/*int		ft_check(const char *f,	t_flag *pf, va_list ap, size_t res)
-{
-	//static size_t	i;
-	int i = 0;
-	int				fl;
-	
-	fl = 0;
-	ft_bzero(pf, sizeof(t_flag));
-	while (f[i])
-	{
-		while ((f[i] && f[i] != '%') && (i < (int)ft_strlen(f)))
-		{
-			ft_putchar(f[i++]);
-			res++;
-		}
-		if (f[i] && f[i] == '%' && f[i + 1] != '%' && (fl = 1))
-		{
-			if ((i = man_flag(f, i, pf) + 1) == 0)
-				return (0);
-			i++;
-		}
-		else if (f[i] && f[i] == '%' && f[i + 1] == '%')
-		{
-			ft_putchar('%');
-			res += 1;
-			fl = 1;
-			i += 2;
-		}
-		if (fl == 1)
-			res = res + output(ap, pf);
-	}
-	return (res);
-}*/
-
 int		ft_printf(const char *format, ...)
 {
-	va_list	ap;
-	int count;
-	size_t	j;
-	t_flag	pf;
+	va_list		ap;
+	int			count;
+	size_t		j;
+	t_flag		pf;
 
-	j = 0;	
+	j = 0;
 	va_start(ap, format);
 	count = ft_new(format, &pf, ap, j);
 	va_end(ap);

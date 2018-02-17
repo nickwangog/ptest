@@ -6,13 +6,13 @@
 /*   By: nwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/02 19:24:59 by nwang             #+#    #+#             */
-/*   Updated: 2018/02/16 16:17:21 by nwang            ###   ########.fr       */
+/*   Updated: 2018/02/16 20:13:11 by nwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		oct(uintmax_t i, int len, t_flag *pf)
+int			oct(uintmax_t i, int len, t_flag *pf)
 {
 	char	*s;
 	int		z;
@@ -41,7 +41,7 @@ int		oct(uintmax_t i, int len, t_flag *pf)
 	return (len);
 }
 
-int		hex(uintmax_t i, t_flag *pf)
+int			hex(uintmax_t i, t_flag *pf)
 {
 	char	*s;
 	int		len;
@@ -52,7 +52,7 @@ int		hex(uintmax_t i, t_flag *pf)
 	len = ft_strlen(s);
 	i != 0 && pf->hash ? len += 2 : len;
 	if (pf->minus == 0)
-		len = len + pad(pf->mwidth - len, *pf);
+		len += pad(pf->mwidth - len, *pf);
 	if (pf->zero == 0 || pf->minus)
 	{
 		if (pf->hash == 1 && pf->cha == 'x' && i != 0)
@@ -65,7 +65,7 @@ int		hex(uintmax_t i, t_flag *pf)
 	else
 		ft_putstr(s);
 	if (pf->minus == 1)
-		len = len + pad(pf->mwidth - len, *pf);
+		len += pad(pf->mwidth - len, *pf);
 	free(s);
 	return (len);
 }
@@ -101,7 +101,7 @@ char		*unbase(uintmax_t z, int base)
 	return (s);
 }
 
-int		unint(uintmax_t i, t_flag *pf)
+int			unint(uintmax_t i, t_flag *pf)
 {
 	int len;
 	int z;

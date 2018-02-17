@@ -37,7 +37,7 @@ int		check_lspec(char c);
 //int		ft_check(const char *f, t_flag *pf, va_list ap, size_t res);
 // int		char_count(const char *f, int i);
 //int		man_flag(const char *f, int i, t_flag *pf);
-int		which_flag(const char *f, int i, t_flag *pf);
+int		which_flag(const char *f, int i, int x, t_flag *pf);
 int		valid_char(const char *f, int i, t_flag *pf);
 //int		prec(const char *f, int i, t_flag *pf);
 //void	star(const char *f, int i, t_flag *pf);

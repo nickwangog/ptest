@@ -6,7 +6,7 @@
 /*   By: nwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 14:14:58 by nwang             #+#    #+#             */
-/*   Updated: 2018/02/12 14:19:41 by nwang            ###   ########.fr       */
+/*   Updated: 2018/02/16 16:32:42 by nwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,22 @@ int		pspad(int z, char *s, int i, t_flag *pf)
 
 	x = 0;
 	if (pf->minus == 1)
-		while (s[i] && i++ < pf->prec)
+		while (s[i] && i < pf->prec)
+		{
 			ft_putchar(s[i]);
-	while (x++ < z)
+			i++;
+		}
+	while (x < z)
+	{
 		ft_putchar(' ');
+		x++;
+	}
 	if (pf->minus == 0)
-		while (s[i] && i++ < pf->prec)
+		while (s[i] && i < pf->prec)
+		{
 			ft_putchar(s[i]);
+			i++;
+		}
 	return (i + x);
 }
 
@@ -84,8 +93,11 @@ int		precstr(va_list ap, t_flag *pf)
 		i += pspad(pf->mwidth - z, s, 0, pf);
 		return (i);
 	}
-	while (s[i] && i++ < pf->prec)
+	while (s[i] && i < pf->prec)
+	{
 		ft_putchar(s[i]);
+		i++;
+	}
 	return (i);
 }
 

@@ -6,7 +6,7 @@
 /*   By: nwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/22 19:07:14 by nwang             #+#    #+#             */
-/*   Updated: 2018/02/01 20:57:05 by nwang            ###   ########.fr       */
+/*   Updated: 2018/02/16 20:21:59 by nwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int		prec(const char *f, int i, t_flag *pf)
 {
-	char *tmp;
-	int j;
+	char	*tmp;
+	int		j;
 
 	j = 0;
 	i += 1;
@@ -25,14 +25,14 @@ int		prec(const char *f, int i, t_flag *pf)
 	tmp[j] = '\0';
 	pf->prec = ft_atoi(tmp);
 	pf->dot = 1;
-	free(tmp);	
+	free(tmp);
 	return (i);
 }
 
 void	star(const char *f, int i, t_flag *pf)
 {
 	pf->star = 1;
-	if (f[i -1] == '.')
+	if (f[i - 1] == '.')
 		pf->starp = 1;
 	else
 		pf->starw = 1;
@@ -52,16 +52,13 @@ int		width(const char *f, int i, t_flag *pf)
 	return (i);
 }
 
-int     which_flag(const char *f, int i, t_flag *pf)
+int		which_flag(const char *f, int i, int x, t_flag *pf)
 {
-	int x;
-
-	x = 0;
 	while (f[i] && f[i] != '%' && !check_spec(f[i]))
 	{
 		if (f[i] == '#')
 			pf->hash = 1;
-		else if (ft_isdigit(f[i]))	
+		else if (ft_isdigit(f[i]))
 		{
 			if (f[i] == '0')
 				pf->zero = 1;
