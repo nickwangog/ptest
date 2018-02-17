@@ -6,7 +6,7 @@
 /*   By: nwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/02 19:24:59 by nwang             #+#    #+#             */
-/*   Updated: 2018/02/16 15:32:21 by nwang            ###   ########.fr       */
+/*   Updated: 2018/02/16 16:17:21 by nwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,8 +114,11 @@ int		unint(uintmax_t i, t_flag *pf)
 	if (pf->minus == 0)
 		len += pad(pf->mwidth - d_len(i), *pf);
 	if (pf->minus == 0 && pf->dot == 1)
-		while (len++ < pf->prec)
+		while (len < pf->prec)
+		{
 			ft_putchar('0');
+			len++;
+		}
 	if (pf->minus == 1)
 		len += pad(pf->mwidth - d_len(i), *pf);
 	ft_putnbrumax(i);
