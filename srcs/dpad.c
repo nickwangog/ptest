@@ -6,7 +6,7 @@
 /*   By: nwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/01 20:57:52 by nwang             #+#    #+#             */
-/*   Updated: 2018/02/10 13:59:45 by nwang            ###   ########.fr       */
+/*   Updated: 2018/02/16 16:13:01 by nwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,11 @@ int			zppad(uintmax_t z, int i, int x, t_flag *pf)
 			: (x = (pf->mwidth - d_len(z)));
 	if (pf->pos == 1 || pf->neg == 1)
 		x--;
-	while (x-- > 0)
+	while (x > 0)
 	{
 		ft_putchar(' ');
 		i++;
+		x--;
 	}
 	if (pf->pos == 1 && i++ >= 0)
 		ft_putchar('+');
