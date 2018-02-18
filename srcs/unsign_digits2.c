@@ -6,7 +6,7 @@
 /*   By: nwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/02 19:24:59 by nwang             #+#    #+#             */
-/*   Updated: 2018/02/16 20:13:11 by nwang            ###   ########.fr       */
+/*   Updated: 2018/02/18 15:51:16 by nwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,8 +119,8 @@ int			unint(uintmax_t i, t_flag *pf)
 			ft_putchar('0');
 			len++;
 		}
+	ft_putnbrumax(i);
 	if (pf->minus == 1)
 		len += pad(pf->mwidth - d_len(i), *pf);
-	ft_putnbrumax(i);
 	return (len);
 }
