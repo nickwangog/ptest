@@ -6,7 +6,7 @@
 /*   By: nwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/22 19:07:14 by nwang             #+#    #+#             */
-/*   Updated: 2018/02/16 20:21:59 by nwang            ###   ########.fr       */
+/*   Updated: 2018/02/16 21:18:27 by nwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,14 @@ int		prec(const char *f, int i, t_flag *pf)
 	int		j;
 
 	j = 0;
-	i += 1;
+	i++;
 	tmp = (char *)malloc(sizeof(char) * 12);
 	while (ft_isdigit(f[i]))
-		tmp[j++] = f[i++];
+	{
+		tmp[j] = f[i];
+		j++;
+		i++;
+	}
 	tmp[j] = '\0';
 	pf->prec = ft_atoi(tmp);
 	pf->dot = 1;
@@ -45,7 +49,7 @@ int		width(const char *f, int i, t_flag *pf)
 	x = 0;
 	while (ft_isdigit(f[i]))
 	{
-		x = x * 10 + (f[i] - 48);
+		x = (x * 10) + (f[i] - 48);
 		pf->mwidth = x;
 		i++;
 	}
