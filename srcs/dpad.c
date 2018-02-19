@@ -6,7 +6,7 @@
 /*   By: nwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/01 20:57:52 by nwang             #+#    #+#             */
-/*   Updated: 2018/02/18 21:43:25 by nwang            ###   ########.fr       */
+/*   Updated: 2018/02/18 21:49:57 by nwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,16 @@
 int			minpad(uintmax_t z, int i, int x, t_flag *pf)
 {
 	x = pf->prec - d_len(z);
-	if (pf->neg == 1 && i++)
+	if (pf->neg == 1)
+	{
 		ft_putchar('-');
-	if (pf->pos == 1 && i++)
+		i++;
+	}
+	if (pf->pos == 1)
+	{
 		ft_putchar('+');
+		i++;
+	}
 	if (d_len(z) < pf->prec)
 		while (x > 0)
 		{
