@@ -6,7 +6,7 @@
 /*   By: nwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/01 20:57:52 by nwang             #+#    #+#             */
-/*   Updated: 2018/02/16 20:14:30 by nwang            ###   ########.fr       */
+/*   Updated: 2018/02/18 21:43:25 by nwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,25 +35,18 @@ int			minpad(uintmax_t z, int i, int x, t_flag *pf)
 	}
 	return (i);
 }
-
-int			zppad(uintmax_t z, int i, int x, t_flag *pf)
+int			zppad2(uintmax_t z, int i, t_flag *pf)
 {
-	pf->prec > d_len(z) ? (x = (pf->mwidth - pf->prec))
-			: (x = (pf->mwidth - d_len(z)));
-	if (pf->pos == 1 || pf->neg == 1)
-		x--;
-	while (x > 0)
+	if (pf->neg == 1)
 	{
-		ft_putchar(' ');
-		i++;
-		x--;
-	}
-	if (pf->pos == 1 && i++ >= 0)
-		ft_putchar('+');
-	if (pf->neg == 1 && i++ >= 0)
 		ft_putchar('-');
-	while (pf->prec-- > d_len(z))
+		i++;
+	}
+	while (pf->prec > d_len(z))
+	{
 		ft_putchar('0');
+		pf->prec--;
+	}
 	i += d_len(z);
 	if (pf->prec == 0 && z == 0)
 	{
@@ -63,4 +56,26 @@ int			zppad(uintmax_t z, int i, int x, t_flag *pf)
 	else
 		ft_putnbr(z);
 	return (i + 1);
+}
+
+int			zppad(uintmax_t z, int i, int x, t_flag *pf)
+{
+	if (pf->prec > d_len(z))
+		x = (pf->mwidth - pf->prec);
+	else
+		x = (pf->mwidth - d_len(z));
+	if (pf->pos == 1 || pf->neg == 1)
+		x--;
+	while (x > 0)
+	{
+		ft_putchar(' ');
+		i++;
+		x--;
+	}
+	if (pf->pos == 1)
+	{
+		ft_putchar('+');
+		i++;
+	}
+	return (zppad2(z, i, pf));
 }

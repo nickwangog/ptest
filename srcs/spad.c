@@ -6,7 +6,7 @@
 /*   By: nwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/02 22:21:14 by nwang             #+#    #+#             */
-/*   Updated: 2018/02/16 16:48:37 by nwang            ###   ########.fr       */
+/*   Updated: 2018/02/18 16:22:21 by nwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,10 @@ int		wspad(int z, int i, wchar_t *s, t_flag *pf)
 	}
 	if (pf->minus == 0)
 		while (s[i] && i < pf->prec)
-			ft_putchar(s[i++]);
+		{
+			ft_putchar(s[i]);
+			i++;
+		}
 	return (i + x);
 }
 
@@ -73,9 +76,9 @@ int		pwstring(va_list ap, int i, int z, t_flag *pf)
 
 	s = va_arg(ap, wchar_t *);
 	if (wslen(s) > pf->prec)
-		(z = pf->prec);
+		z = pf->prec;
 	else
-		(z = wslen(s));
+		z = wslen(s);
 	if (pf->mwidth > pf->prec)
 	{
 		i += wspad(pf->mwidth - z, 0, s, pf);
