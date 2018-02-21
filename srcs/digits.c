@@ -6,7 +6,7 @@
 /*   By: nwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 16:01:11 by nwang             #+#    #+#             */
-/*   Updated: 2018/02/21 14:23:29 by nwang            ###   ########.fr       */
+/*   Updated: 2018/02/21 14:55:23 by nwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ int			digits_cont(long long i, t_flag *pf, int len)
 		len += 1;
 		ft_putchar(' ');
 	}
+	if (pf->minus == 0 && pf->prec > d_len(len))
+		len = pad(pf->mwidth - pf->prec, *pf);
 	if (pf->minus == 1 && pf->neg == 1)
 		i = i * -1;
 	if (pf->neg == 0 && pf->pos == 0 && pf->sp == 1 && pf->dot == 0)
@@ -100,7 +102,5 @@ int			digits(va_list ap, t_flag *pf, int len)
 		pf->mwidth--;
 	if (pf->dot == 0 && pf->minus == 0 && pf->prec <= d_len(len))
 		len = pad(pf->mwidth - (d_len(i)), *pf);
-	if (pf->minus == 0 && pf->prec > d_len(len))
-		len = pad(pf->mwidth - pf->prec, *pf);
 	return (digits_cont(i, pf, len));
 }
