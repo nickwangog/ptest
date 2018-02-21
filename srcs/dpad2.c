@@ -6,7 +6,7 @@
 /*   By: dglaser <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/27 20:03:33 by dglaser           #+#    #+#             */
-/*   Updated: 2018/02/21 14:07:01 by nwang            ###   ########.fr       */
+/*   Updated: 2018/02/21 14:14:19 by nwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int			preminpt2(uintmax_t z, int i, int zeros, t_flag *pf)
 	return (i);
 }
 
-int			ft_preminuspadding(uintmax_t z, t_flag *pf)
+int			minpad(uintmax_t z, t_flag *pf)
 {
 	int		i;
 	int		zeros;

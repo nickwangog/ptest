@@ -6,7 +6,7 @@
 /*   By: nwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 16:01:11 by nwang             #+#    #+#             */
-/*   Updated: 2018/02/21 14:11:30 by nwang            ###   ########.fr       */
+/*   Updated: 2018/02/21 14:14:40 by nwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int			digits_cont(long long i, t_flag *pf, int len)
 {
 	if (pf->dot == 1 && pf->minus == 0 && pf->prec > pf->mwidth
 			&& pf->zero && pf->sp == 0)
-		return (zppad(i, 0, 0, pf));
+		return (zppad(i, pf));
 	if (pf->minus == 0 && pf->prec > d_len(len) && pf->sp)
 	{
 		len += 1;
