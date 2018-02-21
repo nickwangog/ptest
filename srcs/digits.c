@@ -6,7 +6,7 @@
 /*   By: nwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 16:01:11 by nwang             #+#    #+#             */
-/*   Updated: 2018/02/21 14:14:40 by nwang            ###   ########.fr       */
+/*   Updated: 2018/02/21 14:21:57 by nwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int			digits_cont(long long i, t_flag *pf, int len)
 {
 	if (pf->dot == 1 && pf->minus == 0 && pf->prec > pf->mwidth
 			&& pf->zero && pf->sp == 0)
-		return (zppad(i, pf));
+		return (zppad(i, 0, 0, pf));
 	if (pf->minus == 0 && pf->prec > d_len(len) && pf->sp)
 	{
 		len += 1;
@@ -93,9 +93,9 @@ int			digits(va_list ap, t_flag *pf, int len)
 	if (pf->minus == 0 && pf->sp == 1 && pf->mwidth > 0 && pf->prec == 0)
 		pf->mwidth--;
 	if (pf->dot == 1 && pf->minus == 1)
-		return (minpad(i, pf));
+		return (minpad(i, 0, 0, pf));
 	if (pf->dot == 1 && pf->mwidth > pf->prec)
-		return (zppad(i, pf));
+		return (zppad(i, 0, 0 pf));
 	if (pf->dot == 1 && pf->pos == 1 && pf->neg == 0)
 		pf->mwidth--;
 	if (pf->dot == 0 && pf->minus == 0 && pf->prec <= d_len(len))
