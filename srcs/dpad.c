@@ -6,11 +6,18 @@
 /*   By: nwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/01 20:57:52 by nwang             #+#    #+#             */
-/*   Updated: 2018/02/21 14:26:54 by nwang            ###   ########.fr       */
+/*   Updated: 2018/02/21 15:10:24 by nwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+int			iplus(int i)
+{
+	ft_putchar('-');
+	i++;
+	return (i);
+}
 
 int			minpad(uintmax_t z, int i, int x, t_flag *pf)
 {
@@ -21,10 +28,7 @@ int			minpad(uintmax_t z, int i, int x, t_flag *pf)
 		i++;
 	}
 	if (pf->neg == 1)
-	{
-		ft_putchar('-');
-		i++;
-	}
+		iplus(i);
 	if (d_len(z) < pf->prec)
 		while (x > 0)
 		{
@@ -45,10 +49,7 @@ int			minpad(uintmax_t z, int i, int x, t_flag *pf)
 int			zppad2(uintmax_t z, int i, t_flag *pf)
 {
 	if (pf->neg == 1)
-	{
-		ft_putchar('-');
-		i++;
-	}
+		iplus(i);
 	while (pf->prec > d_len(z))
 	{
 		ft_putchar('0');
