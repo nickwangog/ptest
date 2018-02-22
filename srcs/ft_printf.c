@@ -6,7 +6,7 @@
 /*   By: nwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 18:08:50 by nwang             #+#    #+#             */
-/*   Updated: 2018/02/16 20:23:10 by nwang            ###   ########.fr       */
+/*   Updated: 2018/02/21 18:48:54 by nwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int		man_flag(const char *f, int i, t_flag *pf)
 	a = char_count(f, i + 1);
 	if (b == 0)
 	{
-		ft_putendl("Error");
 		return (-1);
 	}
 	return (a + i);
