@@ -6,7 +6,7 @@
 /*   By: nwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/23 20:49:08 by nwang             #+#    #+#             */
-/*   Updated: 2018/02/16 15:27:03 by nwang            ###   ########.fr       */
+/*   Updated: 2018/02/21 16:47:29 by nwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,6 @@ void				ft_swap(int *a, int *b);
 int					ft_square(int c);
 void				ft_putnbrmax(intmax_t a);
 void				ft_putnbrumax(uintmax_t a);
-int					ft_unintlen(uintmax_t num);
+int					ft_uintlen(uintmax_t num);
 
 #endif
