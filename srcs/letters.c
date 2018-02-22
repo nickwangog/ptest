@@ -6,7 +6,7 @@
 /*   By: nwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 14:14:58 by nwang             #+#    #+#             */
-/*   Updated: 2018/02/16 16:32:42 by nwang            ###   ########.fr       */
+/*   Updated: 2018/02/21 18:57:20 by nwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,11 @@ int		char_out(va_list ap, t_flag *pf)
 		c = va_arg(ap, int);
 	if (pf->cha == '%')
 		c = '%';
-	if (pf->mwidth > 0 && (pf->minus == 0 || pf->minus == 1))
+	if (pf->mwidth > 0 && pf->minus == 0)
 		i = pad(pf->mwidth - 1, *pf);
 	ft_putchar(c);
+	if (pf->mwidth > 0 && pf->minus == 1)
+		i = pad(pf->mwidth - 1, *pf);
 	i++;
 	return (i);
 }
@@ -41,13 +43,15 @@ int		str_out(va_list ap, t_flag *pf, int j)
 		ft_putstr("(null)");
 		return (6);
 	}
-	if (pf->mwidth > 0 && (pf->minus == 0 || pf->minus == 1))
+	if (pf->mwidth > 0 && pf->minus == 0)
 		i = pad(pf->mwidth - ft_strlen(s), *pf);
 	if (pf->dot == 1)
 		while (s[j] && j < pf->prec)
 			ft_putchar(s[j++]);
 	else
 		ft_putstr(s);
+	if (pf->mwidth > 0 && pf->minus == 1)
+		i = pad(pf->mwidth - ft_strlen(s), *pf);
 	return (i + ft_strlen(s));
 }
 
