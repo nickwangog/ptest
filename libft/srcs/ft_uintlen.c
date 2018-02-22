@@ -6,13 +6,13 @@
 /*   By: nwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/16 15:25:11 by nwang             #+#    #+#             */
-/*   Updated: 2018/02/16 15:25:14 by nwang            ###   ########.fr       */
+/*   Updated: 2018/02/21 16:50:29 by nwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_unintlen(uintmax_t num)
+int	ft_uintlen(uintmax_t num)
 {
 	int len;
 
